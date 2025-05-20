@@ -37,50 +37,84 @@
 //   </div>);
 // }
 
-import React from 'react';
-import { Card, CardContent, Typography, Grid, Box } from '@mui/material';
+import React from "react";
+import Slider from "react-slick";
+import { Box, Typography } from "@mui/material";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const tips = [
+const slides = [
   {
-    title: '🌹 Roses',
-    description: 'Trim the stems at a 45° angle and change the water every 2 days.',
+    image: "/img/birthday_blossom.webp",
+    text: "Birthday Plants",
   },
   {
-    title: '🌻 Sunflowers',
-    description: 'Place them in direct sunlight and use a tall vase to support their stems.',
+    image: "/img/fresh_flower.webp",
+    text: "Fresh Flower Bouquets",
   },
   {
-    title: '🌷 Tulips',
-    description: 'Keep them in cool water and away from direct sunlight to avoid drooping.',
+    image: "/img/send_sympathy.webp",
+    text: "Gifts with Nature",
   },
   {
-    title: '🌼 Daisies',
-    description: 'Use lukewarm water and avoid overcrowding in the vase.',
+    image: "/img/selebration_blooms.webp",
+    text: "Celebration Blooms",
   },
 ];
 
-export default function FlowerCareTips() {
+const HomeSlider = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
+  };
+
   return (
-    <Box sx={{ padding: 4, backgroundColor: '#fdf6f9' }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        🌿 Flower Care Tips
-      </Typography>
-      <Grid container spacing={3}>
-        {tips.map((tip, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card sx={{ height: '100%', boxShadow: 3 }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {tip.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {tip.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+    <Box sx={{ width: "100%", height: "500px", overflow: "hidden" }}>
+      <Slider {...settings}>
+        {slides.map((slide, index) => (
+          <Box
+            key={index}
+            sx={{
+              position: "relative",
+              width: "100%",
+              height: "500px",
+              backgroundImage: `url(${slide.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                backgroundColor: "#fff",
+                px: 4,
+                py: 2,
+              }}
+            >
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: "bold",
+                  color: "#000",
+                  textAlign: "center",
+                }}
+              >
+                {slide.text}
+              </Typography>
+            </Box>
+          </Box>
         ))}
-      </Grid>
+      </Slider>
     </Box>
   );
-}
+};
+
+export default HomeSlider;

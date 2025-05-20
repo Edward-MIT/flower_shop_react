@@ -35,7 +35,7 @@ export default function NewDishes() {
             {newDishes.length !==0 ? (
             newDishes.map((product: Product) => {
               const imagePath = `${serverApi}/${product.productImages[0]}`
-              const sizeVolume = product.productCollection === ProductCollection.DRINK ? product.productVolume + 'l':
+              const sizeVolume = product.productCollection === ProductCollection.OTHER ? product.productVolume + 'l':
               product.productSize;
               return(
               <Card key={product._id} variant="outlined" className={"card"}>

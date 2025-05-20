@@ -1,7 +1,7 @@
 export enum ProductSize{
-  SMALL = "SMALL",
-  NORMAL = "NORMAL",
-  LARGE = "LARGE",
+  REGULAR = "REGULAR",
+  DELUXE = "DELUXE",
+  PREMIUM = "PREMIUM",
   SET = "SET"
 }
 
@@ -20,9 +20,11 @@ export enum ProductStatus {
 }
 
 export enum ProductCollection{
- DISH = "DISH",
- SALAD = "SALAD",
- DESSERT = "DESSERT",
- DRINK = "DRINK",
+  BOUQUETS = "BOUQUETS",
+ OFFICE_CORPORATE_FLOWERS = "OFFICE_CORPORATE_FLOWERS",
+ HOME_DECOR_FLOWERS = "HOME_DECOR_FLOWERS",
+ GIFT_AND_SPACIAL_BOXES = "GIFT AND SPECIAL BOXES",
+
+//  DRINK = "DRINK",
  OTHER = "OTHER"
 }
